@@ -1,0 +1,39 @@
+﻿1) Instalé Visual Studio
+2) GitHub
+2.1) Cree una cuenta
+2.2) Cree un repositorio
+2.3) Copié el link del remote que tenía que agregar al repositorio local (Ej: https://github.com/jandresleiva/mvc-netcore3.git)
+2.3) Entré a PowerShell y me dirigí a la carpeta local
+2.4) Corrí los comandos para inicializar el repositorio local
+2.4.1) git init
+2.4.2) (Que haya por lo menos un archivo) git add ./
+2.4.3) git commit -m "Initial commit"
+2.4.4) git remote add origin [link del remote]
+2.4.5) git push (y me prompteo para ingresar usuario y contraseña)
+2.5) Abrí la ventana de Team Explorer (View > Team Explorer) y automáticamente me tomó la configuración
+3) Swagger
+3.1) Fui al manager de paquetes (Tools > NuGet Package Manager > Manage NuGet Packages for Solution) 
+3.2) Fui a la pestaña Browse
+3.3) Busqué Swashbuckle.AspNetCore
+3.4) Tildé la caja Include prerelease (junto al cuadro de búsuqeda)
+3.5) Lo seleccioné y tildé el proyecto en la caja de la derecha.
+3.6) Debajo seleccioné la versión específica 5.0.0-rc4 (IMPORTANTE!)
+3.7) Presioné Install y acepté las licencias.
+3.8) Volví al Solution Explorer y abrí el Startup.cs para agregar y configurar el Swagger middleware
+3.8.1) Agregué using Microsoft.OpenApi.Models;
+3.8.2) Agregué el generador a la colección de servicios en el método Startup.ConfigureServices debajo del AddControllers
+    services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+        });
+3.8.3) Habilité el middleware en el método Startup.Configure para servir el JSON generado y el Swagger UI arriba de todo.
+    
+    // Enable middleware to serve generated Swagger as a JSON endpoint.
+    app.UseSwagger();
+
+    // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+    // specifying the Swagger JSON endpoint.
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    });
