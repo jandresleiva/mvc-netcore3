@@ -11,6 +11,7 @@
 2.4.4) git remote add origin [link del remote]
 2.4.5) git push (y me prompteo para ingresar usuario y contraseña)
 2.5) Abrí la ventana de Team Explorer (View > Team Explorer) y automáticamente me tomó la configuración
+
 3) Swagger
 3.1) Fui al manager de paquetes (Tools > NuGet Package Manager > Manage NuGet Packages for Solution) 
 3.2) Fui a la pestaña Browse
@@ -37,3 +38,75 @@
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
     });
+
+4) MySQL
+4.1) Instalé el MySQL.Data desde el NuGet Manager
+4.2) Agregué al appsettings.json la siguiente entrada:
+    "ConnectionStrings": {
+        "DefaultConnection": "server=localhost;port=3306;database=sysadcon;user=root;password="
+    }
+4.3) Cree una carpeta llamada Data y dentro una clase APIDbContext.cs para generar el contexto de la DB
+    using Microsoft.EntityFrameworkCore;
+    using MVC_netcore3.Models;
+
+    namespace MVC_netcore3.Data
+    {
+      public class APIDbContext : DbContext
+      {
+    
+        public DbSet<Empleado> Empleado { get; set; }
+        public APIDbContext(DbContextOptions<APIDbContext> options) : base(options)
+        {
+        }
+      }
+    }
+4.4) Registro el contexto entre los servicios en el archivo Startup.cs
+4.4.1) Agrego las llamadas
+    using Microsoft.EntityFrameworkCore;
+    using MVC_netcore3.Data;
+    using Pomelo.EntityFrameworkCore.MySql.Storage;
+    using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+4.4.2) Y agregando a ConfigureServices
+      services.AddDbContextPool<APIDbContext>(options => options
+          .UseMySql( Configuration.GetConnectionString("DefaultConnection"), mySqlOptions => mySqlOptions
+              .ServerVersion(new ServerVersion(new Version(8, 0, 18), ServerType.MySql)) 
+        ));
+      }
+4.5) Creo el modelo correspondiente a la tabla, por ejemplo Empleado, en la carpeta Models
+4.5.1)     
+        public class Empleado
+        {
+            public int id { set; get; }
+            public string nombre { set; get; }
+            public int dni { set; get; }
+            //public DateTime fecha_nacimiento { set; get; }
+            public int telefono { set; get; }
+            public int telefono2 { set; get; }
+            public string email { set; get; }
+            public string domicilio { set; get; }
+            public string rol { set; get; }
+        //public DateTime fecha_alta { set; get; }
+        //public DateTime fecha_borrado { set; get; }
+
+      }
+4.6) Modifico el controller
+4.6.1) Llamo las dependencias:
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+    using MVC_netcore3.Models;
+    using MVC_netcore3.Data;
+4.6.2) Dentro de la clase principal (por ejemplo: public class WeatherForecastController : ControllerBase) agrego la declaración de la instancia del contexto
+    private readonly APIDbContext _context;
+4.6.3) En el constructor de la clase, seteo el contexto:
+    public WeatherForecastController(APIDbContext context)
+    {
+        _context = context;
+    }
+4.6.4) En algno de los llamados HTTP (por ejemplo GET), interactúo con la DB:
+    [HttpGet]
+    public async Task<Empleado> Get(int id)
+        {
+        var empleado = await _context.Empleado.FindAsync(id);
+        return empleado;
+    }

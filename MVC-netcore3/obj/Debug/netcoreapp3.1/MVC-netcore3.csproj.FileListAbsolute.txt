@@ -8,8 +8,6 @@ D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\staticwebassets\MVC-netcore3.Sta
 D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.AssemblyInfoInputs.cache
 D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.AssemblyInfo.cs
 D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.RazorTargetAssemblyInfo.cache
-D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.MvcApplicationPartsAssemblyInfo.cs
-D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.MvcApplicationPartsAssemblyInfo.cache
 D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\MVC-netcore3.deps.json
 D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\MVC-netcore3.runtimeconfig.json
 D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\MVC-netcore3.runtimeconfig.dev.json
@@ -28,3 +26,13 @@ D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI
 D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.csproj.CopyComplete
 D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.dll
 D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.pdb
+D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+D:\netcore\MVC-netcore3\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.MvcApplicationPartsAssemblyInfo.cs
+D:\netcore\MVC-netcore3\obj\Debug\netcoreapp3.1\MVC-netcore3.MvcApplicationPartsAssemblyInfo.cache
