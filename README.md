@@ -1,7 +1,7 @@
 # Template MVC
 Este es un template básico para .Net Core MVC. Todavía es un trabajo en progreso, que por cuestiones de tiempo debí suspender.
 
-Incluye:
+## Incluye:
 - Instalación de repositorio de git.
 - Instalación de Swagger para documentar endpoints con Open API.
 - Conexión con un servidor local MySQL usando EntityFramework con un contexto independiente.
